@@ -1,0 +1,82 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import "tailwindcss";
+
+:root {
+  --background: #000212;
+  --foreground: #f7f8f8;
+  --card: #0b0c10;
+  --card-foreground: #f7f8f8;
+  --popover: #000212;
+  --popover-foreground: #f7f8f8;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
+  --secondary: #121316;
+  --secondary-foreground: #f7f8f8;
+  --muted: #121316;
+  --muted-foreground: #8a8f98;
+  --accent: #121316;
+  --accent-foreground: #f7f8f8;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: #5e6ad2;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
+}
+
+@layer components {
+  .linear-card {
+    @apply bg-[var(--card)] border border-[var(--border)] rounded-lg overflow-hidden transition-all duration-200 hover:border-[#ffffff1a] hover:bg-[#121316];
+  }
+  
+  .linear-input {
+    @apply bg-[var(--input)] border border-[var(--border)] rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--primary)] transition-all;
+  }
+  
+  .linear-button-primary {
+    @apply bg-[var(--primary)] text-[var(--primary-foreground)] px-4 py-2 rounded-md font-medium hover:bg-[#4f59c1] active:scale-95 transition-all flex items-center justify-center gap-2;
+  }
+  
+  .linear-button-secondary {
+    @apply bg-[var(--secondary)] text-[var(--secondary-foreground)] px-4 py-2 rounded-md font-medium border border-[var(--border)] hover:bg-[#1a1b1e] active:scale-95 transition-all flex items-center justify-center gap-2;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
